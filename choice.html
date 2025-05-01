@@ -1,0 +1,121 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Do You Like It?</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      background-color: lavender; /* Lavender background */
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #d6336c;
+      margin-bottom: 30px;
+      animation: fadeIn 1.5s ease-in-out; /* Fade-in animation for heading */
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #fff;
+      color: #d6336c;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      /* animation: bounce 0.6s ease infinite; Bounce animation for buttons */
+    }
+
+    button:hover {
+      background-color: #ffe6ea;
+      transform: scale(1.1); /* Slight scale effect on hover */
+    }
+
+    /* Keyframe for fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Keyframe for bounce animation */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .kiss {
+      position: absolute;
+      font-size: 3rem;
+      color: pink;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Did you like it or love it? 💖</h1>
+  <div class="buttons">
+    <button onclick="goToLikeSite()">Like it </button>
+    <button onclick="goToLoveSite()">Love it</button>
+  </div>
+
+  <script>
+    // Function to randomly place kiss emojis
+    function addRandomKiss() {
+      const kissEmoji = '💋';
+      const kissCount = 20; // Increased number of kisses to 20
+      const body = document.body;
+
+      for (let i = 0; i < kissCount; i++) {
+        const kissElement = document.createElement('div');
+        kissElement.classList.add('kiss');
+        kissElement.innerHTML = kissEmoji;
+
+        // Random position for the kiss
+        const xPos = Math.random() * window.innerWidth;
+        const yPos = Math.random() * window.innerHeight;
+
+        kissElement.style.left = `${xPos}px`;
+        kissElement.style.top = `${yPos}px`;
+
+        body.appendChild(kissElement);
+      }
+    }
+
+    // Function to navigate to "love-you.html" for both buttons
+    function goToLikeSite() {
+      window.location.href = 'you.html';
+    } 
+
+    function goToLoveSite() {
+      window.location.href = 'you.html';
+    }
+
+    // Add random kisses when the page loads
+    window.onload = addRandomKiss;
+  </script>
+</body>
+</html>
