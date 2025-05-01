@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love You Bby</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #229098, #4a87de);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .heart-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart, .petal {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 10s infinite ease-in-out;
+      opacity: 0.6;
+    }
+
+    .heart {
+      color: rgba(255, 105, 180, 0.3);
+    }
+
+    .petal {
+      color: rgba(255, 182, 193, 0.6);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    h1 {
+      color: white;
+      font-size: 3rem;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+      margin-bottom: 0.2px; /* 👈 Space between h1 and p */
+    }
+
+    p.note {
+      font-size: 1.2rem;
+      color: #ffffff;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 80px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .next-button {
+      text-decoration: none;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #ff69b4;
+      color: white;
+      font-weight: bold;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 3; /* Ensure it's clickable */
+      transition: background-color 0.3s ease;
+    }
+
+    .next-button:hover {
+      background-color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <div class="heart-bg" id="heart-bg"></div>
+
+  <h1>Love you sweetuu❤️</h1>
+  <p class="note">Happy Birthday cutiepiee💘</p>
+  <a href="index.html" class="next-button">Finish❤️</a>
+
+  <script>
+    function createFloatingElement(type) {
+      const container = document.getElementById('heart-bg');
+      const element = document.createElement('div');
+      element.classList.add(type);
+      element.style.left = Math.random() * 100 + 'vw';
+      element.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      element.innerHTML = type === 'heart' ? '❤' : '🌸';
+      container.appendChild(element);
+
+      setTimeout(() => {
+        element.remove();
+      }, 10000);
+    }
+
+    setInterval(() => createFloatingElement('heart'), 400);
+    setInterval(() => createFloatingElement('petal'), 1000);
+  </script>
+</body>
+</html>
