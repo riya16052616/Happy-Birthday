@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Love Letter</title>
+   <style>
+     html, body {
+       margin: 0;
+       padding: 0;
+       font-family: 'Dancing Script', cursive;
+       background: linear-gradient(to bottom right, #fbc4d3, #f6c2b1);
+       color: #680d0d;
+       text-align: left;
+       overflow-x: hidden;
+       height: 100%;
+     }
+ 
+     .content {
+       padding: 40px 60px;
+       max-width: 900px;
+       position: relative;
+       z-index: 1;
+     }
+ 
+     h1 {
+       font-size: 2.5rem;
+       margin-bottom: 20px;
+     }
+
+     h2 {
+      font-size: 2rem;
+     }
+ 
+     p {
+       font-size: 1.5rem;
+       line-height: 1.5;
+       font-weight: 300;
+       font-family: 'Times New Roman', Times, serif;
+     }
+ 
+     .next-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ff69b4;
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background-color 0.3s ease;
+  z-index: 2; /* Ensures it's clickable */
+}
+
+
+.next-button:hover {
+  background-color: #ff1493;      /* Slightly darker on hover */
+}
+
+     /* Animated hearts using pseudo-elements */
+     .background-hearts {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       overflow: hidden;
+       z-index: 0;
+       pointer-events: none;
+     }
+ 
+     .background-hearts::before, .background-hearts::after {
+       content: "❤️";
+       font-size: 24px;
+       position: absolute;
+       width: 100%;
+       animation: floatHearts 20s linear infinite;
+       opacity: 0.3;
+       white-space: nowrap;
+     }
+ 
+     .background-hearts::after {
+       top: 60%;
+       animation-delay: 10s;
+       opacity: 0.2;
+     }
+ 
+     @keyframes floatHearts {
+       0% {
+         transform: translateY(100%);
+       }
+       100% {
+         transform: translateY(-120%);
+       }
+     }
+
+     .emoji-kiss-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.kiss-emoji {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.6;
+  animation: fadeIn 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+
+   </style>
+   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+ </head>
+ <body>
+ <a href="choice.html" class="next-button" style="z-index: 2;">Next❤️</a>
+
+   <div class="background-hearts"></div>
+
+   <div class="emoji-kiss-container" id="emoji-kiss-container"></div>
+
+   <div class="content">
+     <h1>To My</h1>
+      <h2>Favourite Person 💌</h2>
+     <p>
+       To the man , I want to spend my whole life with ❤️ , I still remember the first time we met , and now you are the person I want in my entire life . and now we 
+        are in that phase where we both need each other to complete the love story that you started . Thank you soo much bby to love me 🧿 you are the best  bestest friend , best friend ,boyfriend , and my future husband ever ...
+        I love you soo much bby <br>aapka first birthday jo ham sath mai celebrate kr rhe hai ❤️ and I want it to be special because my princess also deserve to feel special 
+        or aap ho special mere liye bby 🧿 and i hope kii ham aane vale baki sare birthday bhi sath celebrate kre❤️.<br>
+        I hope kii aapko special feel hua hoo ittu sa 😘 or aapki sari wishes puri ho aap hamesha khuss rho❤️  <br>
+       With all my love,<br>
+       Your Bugguuu🥰<br>
+
+     </p>
+    </div>
+  
+    <script>
+      const emojiContainer = document.getElementById('emoji-kiss-container');
+      const emojis = ['💋', '❤️', '💋', '🧿'];
+    
+      function createRandomKissEmoji() {
+        const emoji = document.createElement('div');
+        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.className = 'kiss-emoji';
+        emoji.style.top = Math.random() * window.innerHeight + 'px';
+        emoji.style.left = Math.random() * window.innerWidth + 'px';
+        emoji.style.fontSize = (20 + Math.random() * 20) + 'px';
+        emoji.style.animationDuration = (4 + Math.random() * 3) + 's';
+        emojiContainer.appendChild(emoji);
+      }
+    
+      for (let i = 0; i < 20; i++) {
+        createRandomKissEmoji();
+      }
+    </script>
+    
+ </body>
+ </html>
+ 
